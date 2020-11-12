@@ -1,0 +1,134 @@
+.container {
+  max-width: 290px;
+  margin: 0 auto;
+  padding: 0;
+  @include media('>=tablet') {
+      max-width: 756px;
+  }
+  @include media('>=desktop') {
+      max-width: 1170px;
+  }
+
+.head {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include media('>=tablet') {
+    justify-content: flex-start;
+    padding: 35px 0 15px 15px;
+  }
+  @include media('>=desktop') {
+    padding: 85px 15px 60px 15px;
+    margin-left: 5px;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: normal;
+    color: $white;
+    text-align: center;
+    border-bottom: solid 4px $light-gray;
+    @include media('>=tablet') {
+      margin-left: -5px;
+      padding-bottom: 9px;
+    }	
+    @include media('>=desktop') {
+      padding: 0 17px;
+      margin-bottom: 0;
+      line-height: 1.17;
+      border-bottom: none;
+      border-left: solid 10px $light-gray;
+    }
+  }	
+}
+.col-wrapper {
+  margin-bottom: 12px;
+  @include media('>=tablet') {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  @include media('>=desktop') {
+    margin-bottom: 32px;
+  }	
+  .col {
+    @include media('>=tablet') {
+      width: 33.3%;
+    }
+    .image {
+      margin: 0 15px 26px;
+      width: calc(100% - 30px);
+      position: relative;
+      @include media('>=tablet') {
+        margin: 0 10px 20px;
+        width: calc(100% - 20px);
+      }
+      @include media('>=desktop') {
+        margin: 0 15px 30px;
+        width: calc(100% - 30px);
+      }
+      img {
+        width: 100%;
+      }
+      .hover-box {
+        background-color: $background-hover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+        .plus {
+          flex-grow: 1;
+          position: relative;
+          &::before {
+            width: 20px;
+            height: 3px;
+          }
+          &::after {
+            width: 3px;
+            height: 20px;
+          }
+          &::before, &::after {
+            @include hover-box-plus();
+          }
+        }
+        h3 {
+          margin: 0;
+          padding: 10px;
+          font-size: 16px;
+          background-color: $dark-gray;
+          color: $white;
+        }
+      }
+      &:hover {
+        .hover-box {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  a {
+    padding: 15px;
+    border: solid 2px $white;
+    border-radius: 5px;
+    background-color: $grey;
+    color: $white;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: normal;
+    transition: background-color .3s ease-in-out;
+    text-decoration: none;
+    &:hover {
+      background-color: $black;
+      border-color: $black;
+    }
+  }
+}
+}
